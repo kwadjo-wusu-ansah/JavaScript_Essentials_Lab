@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./index.css" />
+
+    <title>Frontend Mentor | Character counter</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#main-content">
+              <img id="logo" class="logo" alt="Character Counter Logo"
+            /></a>
+          </li>
+          <li>
+            <a id="appearance-toggle"
+              ><div class="appearance-toggle">
+                <img class="toggle" alt="Toggle Appearance" /></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="title-container">
+        <h1>
+          Analyze your text<br />
+          in real-time.
+        </h1>
+      </section>
+      <section class="body-container">
+        <textarea
+          name="text-input"
+          id="text-input"
+          class="text-input"
+          placeholder="Start typing here… (or paste your text)"
+          row="6"
+          col="70"
+        ></textarea>
+        <p class="limit-reached-message">
+          <img src="./assets/images/icon-info.svg" /> Limit reached! Your text
+          exceeds <span id="charater-limit"></span> characters.
+        </p>
+
+        <section class="option-container">
+          <section class="options">
+            <label for="exclude-spaces" class="label">
+              <input
+                type="checkbox"
+                id="exclude-spaces"
+                name="exclude-spaces"
+                class="checkbox"
+              />
+              Exclude Spaces</label
+            >
+
+            <label for="set-character-limit" class="label">
+              <input
+                type="checkbox"
+                id="set-character-limit"
+                name="set-character-limit"
+                class="checkbox"
+              />
+              Set Character Limit</label
+            >
+            <input type="number" class="character-limit-input" />
+          </section>
+
+          <label class="label"
+            >Approx. reading time:
+            <span id="reading-time">0</span> minutes</label
+          >
+        </section>
+        <section class="stats-container">
+          <div class="stat-container tc-bcolor">
+            <div>
+              <h2 class="stat" id="total-characters">00</h2>
+              <p>Total Characters</p>
+            </div>
+
+            <img
+              src="./assets/images/pattern-character-count.svg"
+              alt="Pattern for Total Characters"
+              class="stat-image"
+            />
+          </div>
+          <div class="stat-container wc-bcolor">
+            <div>
+              <h2 class="stat" id="word-count">00</h2>
+              <p>Word Count</p>
+            </div>
+
+            <img
+              src="./assets/images/pattern-word-count.svg"
+              alt="Pattern for Word Count"
+              class="stat-image"
+            />
+          </div>
+          <div class="stat-container sc-bcolor">
+            <div>
+              <h2 class="stat" id="sentence-count">00</h2>
+              <p>Sentence Count</p>
+            </div>
+
+            <img
+              src="./assets/images/pattern-sentence-count.svg"
+              alt="Pattern for Sentence Count"
+              class="stat-image"
+            />
+          </div>
+        </section>
+
+        <section class="density-container">
+          <p class="letter-density-title">Letter Density</p>
+          <p id="display-letter-density" class="display-letter-density">
+            No characters found. Start typing to see letter density.
+          </p>
+          <div id="density-results">
+            <!-- <label class = "progress-bar-label">
+              A <progress value="16.06" max="100" class="progress-bar">16.06</progress> 40(16.06)
+            </label> -->
+          </div>
+
+          <p class="see-text-more" id="see-text-more">See More</p>
+          <p class="see-text-less" id="see-text-less">See Less</p>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
