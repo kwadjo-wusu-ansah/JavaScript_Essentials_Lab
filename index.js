@@ -160,7 +160,7 @@ const updateWordCount = () => {
 };
 
 //Function to compute the sentence count (2) - /*utility*/
-const computeSentenceCount = (text) => { 
+const computeSentenceCount = (text) => {
   const sentences = TextToSentences(text);
   return sentences.length;
 };
@@ -176,8 +176,6 @@ const updateSentenceCount = () => {
 
   sentenceCountDisplay.textContent = formattedCount;
 };
-
-
 
 // displays CharateLimit Box (fxn)
 const toggleCharacterLimitBox = () => {
@@ -195,14 +193,12 @@ const toggleCharacterLimitBox = () => {
   }
 };
 
-
 // set Character limit (fxn)
 const setCharacterLimit = () => {
   const characterLimitInput = getElement("class", "character-limit-input")[0];
   const textInput = getElement("id", "text-input");
   textInput.maxLength = characterLimitInput.value;
 };
-
 
 // display Limit Reached Message (fxn)
 const displayLimitReachedMessage = () => {
@@ -227,7 +223,6 @@ const displayLimitReachedMessage = () => {
     limitReachedMessage.style.display = "none";
   }
 };
-
 
 // Function to compute Letter Density Results (2) - /*utility*/
 const computeLetterDensityResultsHTML = () => {
@@ -262,12 +257,13 @@ const computeLetterDensityResultsHTML = () => {
   return letterDensityStrings;
 };
 
-
 // Function to display top 5 Letter Density Results (fxn)
 const displayTop5LetterDensityResults = () => {
   const densityResult = getElement("id", "density-results");
   const displayLetterDensity = getElement("id", "display-letter-density");
   const textInput = getElement("id", "text-input");
+  const seeLessText = getElement("id", "see-text-less");
+  const seeMoreText = getElement("id", "see-text-more");
 
   const letterDensityStrings = computeLetterDensityResultsHTML();
 
@@ -283,13 +279,15 @@ const displayTop5LetterDensityResults = () => {
     displayLetterDensity.textContent =
       "No characters found. Start typing to see letter density.";
     densityResult.innerHTML = "";
+    seeLessText.style.display = "none";
+    seeMoreText.style.display = "none";
   } else {
     displayLetterDensity.textContent = "";
     console.log(results);
     densityResult.innerHTML = results;
+    displaySeeMore();
   }
   // show more button
-  displaySeeMore();
 };
 
 // Function to display all Letter Density Results (fxn)
@@ -297,6 +295,8 @@ const displayAllLetterDensityResults = () => {
   const densityResult = getElement("id", "density-results");
   const displayLetterDensity = getElement("id", "display-letter-density");
   const textInput = getElement("id", "text-input");
+  const seeLessText = getElement("id", "see-text-less");
+  const seeMoreText = getElement("id", "see-text-more");
 
   const letterDensityStrings = computeLetterDensityResultsHTML();
 
@@ -312,6 +312,8 @@ const displayAllLetterDensityResults = () => {
     displayLetterDensity.textContent =
       "No characters found. Start typing to see letter density.";
     densityResult.innerHTML = "";
+    seeLessText.style.display = "none";
+    seeMoreText.style.display = "none";
   } else {
     displayLetterDensity.textContent = "";
     console.log(results);
