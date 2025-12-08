@@ -22,7 +22,7 @@ const toggleTheme = () => {
   }
 };
 
-// Function to convert text to an array of words without punctuation and extra spaces (1) - /*utility*/
+// Function to convert text to an array of words without punctuations and extra spaces (1) - /*utility*/
 const TextToWords = (text) => {
   text = text.replace(/[^\w\s]|_/g, ""); // remove punctuation
   return text.trim().split(/\s+/); // split by whitespace
@@ -35,6 +35,12 @@ const TextToCharacterWithSpaces = (text) => {
 
 // Function to convert text to an array of characters excluding spaces (1) - /*utility*/
 const TextToCharacterWithoutSpaces = (text) => {
+  return text.split("").filter((char) => char !== " ");
+};
+
+// Function to convert text to an array of characters excluding spaces and punctuations (1) - /*utility*/
+const TextToCharacterWithoutSpacesAndPunctuation = (text) => {
+  text = text.replace(/[^\w\s]|_/g, "");
   return text.split("").filter((char) => char !== " ");
 };
 
@@ -228,7 +234,7 @@ const displayLimitReachedMessage = () => {
 const computeLetterDensityResultsHTML = () => {
   const letterDensity = new Map();
   const textInput = getElement("id", "text-input");
-  let characters = TextToCharacterWithoutSpaces(textInput.value);
+  let characters = TextToCharacterWithoutSpacesAndPunctuation(textInput.value);
   characters = characters.map((character) => character.toUpperCase());
 
   for (let i = 0; i < characters.length; i++) {
