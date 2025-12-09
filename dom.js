@@ -12,7 +12,7 @@ import {
   handleStatisticFormat,
 } from "./utils.js";
 
-// Function to toggle between light and dark themes (fxn)
+// Function to toggle between light and dark themes
 export const toggleTheme = () => {
   const root = document.documentElement;
   const isLight = root.dataset.theme === "light";
@@ -23,7 +23,7 @@ export const toggleTheme = () => {
   }
 };
 
-// Function to display See more (fxn)
+// Function to display See more
 export const displaySeeMore = () => {
   const seeMoreText = getElement("id", "see-text-more");
   const seeLessText = getElement("id", "see-text-less");
@@ -32,7 +32,7 @@ export const displaySeeMore = () => {
   seeLessText.style.display = "none";
 };
 
-// Function to display See less (fxn)
+// Function to display See less
 export const displaySeeLess = () => {
   const seeMoreText = getElement("id", "see-text-more");
   const seeLessText = getElement("id", "see-text-less");
@@ -40,7 +40,7 @@ export const displaySeeLess = () => {
   seeMoreText.style.display = "none";
 };
 
-// Function to Update reading time display in the DOM (fxn)
+// Function to Update reading time display in the DOM
 export const updateReadingTime = () => {
   const textArea = getElement("id", "text-input");
   const readingTimeDisplay = getElement("id", "reading-time");
@@ -52,7 +52,7 @@ export const updateReadingTime = () => {
   readingTimeDisplay.textContent = formattedTime;
 };
 
-// Function to Update character count excluding spaces in the DOM (fxn)
+// Function to Update character count excluding spaces in the DOM
 export const updateTotalCharacterCountWithoutSpaces = () => {
   const textArea = getElement("id", "text-input");
   const charCountDisplay = getElement("id", "total-characters");
@@ -64,7 +64,7 @@ export const updateTotalCharacterCountWithoutSpaces = () => {
   charCountDisplay.textContent = formattedCount;
 };
 
-// Function to Update character count including spaces in the DOM (fxn)
+// Function to Update character count including spaces in the DOM
 export const updateTotalCharacterCountWithSpaces = () => {
   const textArea = getElement("id", "text-input");
   const charCountDisplay = getElement("id", "total-characters");
@@ -76,7 +76,7 @@ export const updateTotalCharacterCountWithSpaces = () => {
   charCountDisplay.textContent = formattedCount;
 };
 
-// Function to update character count based on checkbox state (fxn)
+// Function to update character count based on checkbox state
 export const updateTotalCharacterCount = () => {
   const excludeSpacesCheckbox = getElement("id", "exclude-spaces");
   const isChecked = excludeSpacesCheckbox.checked;
@@ -88,7 +88,7 @@ export const updateTotalCharacterCount = () => {
   }
 };
 
-// Function to Update word count in the DOM (fxn)
+// Function to Update word count in the DOM
 export const updateWordCount = () => {
   const textArea = getElement("id", "text-input");
   const wordCountDisplay = getElement("id", "word-count");
@@ -100,7 +100,7 @@ export const updateWordCount = () => {
   wordCountDisplay.textContent = formattedCount;
 };
 
-// Function to Update sentence count in the DOM (fxn)
+// Function to Update sentence count in the DOM
 export const updateSentenceCount = () => {
   const textArea = getElement("id", "text-input");
   const sentenceCountDisplay = getElement("id", "sentence-count");
@@ -112,7 +112,7 @@ export const updateSentenceCount = () => {
   sentenceCountDisplay.textContent = formattedCount;
 };
 
-// displays CharateLimit Box (fxn)
+// displays Character Limit Box
 export const toggleCharacterLimitBox = () => {
   const characterLimitCheckbox = getElement("id", "set-character-limit");
   const characterLimitInput = getElement("class", "character-limit-input")[0];
@@ -128,14 +128,14 @@ export const toggleCharacterLimitBox = () => {
   }
 };
 
-// set Character limit (fxn)
+// set Character limit
 export const setCharacterLimit = () => {
   const characterLimitInput = getElement("class", "character-limit-input")[0];
   const textInput = getElement("id", "text-input");
   textInput.maxLength = characterLimitInput.value;
 };
 
-// display Limit Reached Message (fxn)
+// display Limit Reached Message
 export const displayLimitReachedMessage = () => {
   const textArea = getElement("id", "text-input");
   const limitReachedMessage = getElement("class", "limit-reached-message")[0];
@@ -159,7 +159,7 @@ export const displayLimitReachedMessage = () => {
   }
 };
 
-// Function to display top 5 Letter Density Results (fxn)
+// Function to display top 5 Letter Density Results
 export const displayTop5LetterDensityResults = () => {
   const densityResult = getElement("id", "density-results");
   const displayLetterDensity = getElement("id", "display-letter-density");
@@ -192,7 +192,7 @@ export const displayTop5LetterDensityResults = () => {
   // show more button
 };
 
-// Function to display all Letter Density Results (fxn)
+// Function to display all Letter Density Results
 export const displayAllLetterDensityResults = () => {
   const densityResult = getElement("id", "density-results");
   const displayLetterDensity = getElement("id", "display-letter-density");

@@ -27,6 +27,16 @@ export const TextToSentences = (text) => {
   return text.split(/[.!?]+/).filter((sentence) => sentence.trim() !== "");
 };
 
+// Function to remove numbers from text
+export const removeNumbersFromText = (text) => {
+  return text.replace(/[0-9]/g, "");
+};
+
+// Function to remove special characters from text
+export const removeNewLinesFromText = (text) => {
+  return text.replace(/[\r\n]+/g, " ");
+};
+
 /*Formatting Functions*/
 
 // Function to format statistic counts to always have at least two digits  /*formating*/

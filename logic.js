@@ -5,6 +5,8 @@ import {
   TextToCharacterWithoutSpacesAndPunctuation,
   TextToSentences,
   getElement,
+  removeNumbersFromText,
+  removeNewLinesFromText,
 } from "./utils.js";
 
 // Function to compute reading time in minutes based on average reading speed (2) - /*utility*/
@@ -53,7 +55,11 @@ export const computeSentenceCount = (text) => {
 export const computeLetterDensityResultsHTML = () => {
   const letterDensity = new Map();
   const textInput = getElement("id", "text-input");
-  let characters = TextToCharacterWithoutSpacesAndPunctuation(textInput.value);
+  // sanitize the raw text first, then split into characters
+  let content = textInput.value;
+  content = removeNumbersFromText(content);
+  content = removeNewLinesFromText(content);
+  let characters = TextToCharacterWithoutSpacesAndPunctuation(content);
   characters = characters.map((character) => character.toUpperCase());
 
   for (let i = 0; i < characters.length; i++) {
