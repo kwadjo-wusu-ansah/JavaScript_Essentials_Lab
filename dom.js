@@ -193,7 +193,7 @@ export const displayTop5LetterDensityResults = () => {
     }
   }
 
-  if (textInput.value == "") {
+  if (textInput.value.trim() == "") {
     results = "";
     displayLetterDensity.textContent =
       "No characters found. Start typing to see letter density.";
@@ -202,7 +202,6 @@ export const displayTop5LetterDensityResults = () => {
     seeMoreText.style.display = "none";
   } else {
     displayLetterDensity.textContent = "";
-    console.log(results);
     densityResult.innerHTML = results;
     displaySeeMore();
   }
@@ -235,9 +234,7 @@ export const displayAllLetterDensityResults = () => {
     seeMoreText.style.display = "none";
   } else {
     displayLetterDensity.textContent = "";
-    console.log(results);
     densityResult.innerHTML = results;
   }
-  console.log(results);
   displaySeeLess();
 };
