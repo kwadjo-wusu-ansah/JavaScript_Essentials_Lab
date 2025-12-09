@@ -203,7 +203,10 @@ export const displayTop5LetterDensityResults = () => {
   } else {
     displayLetterDensity.textContent = "";
     densityResult.innerHTML = results;
-    displaySeeMore();
+    if (letterDensityStrings.length > 5) {
+      displaySeeMore();
+    }
+   
   }
   // show more button
 };
