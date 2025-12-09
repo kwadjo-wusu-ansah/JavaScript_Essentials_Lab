@@ -12,6 +12,17 @@ import {
   handleStatisticFormat,
 } from "./utils.js";
 
+// DOM Elements for the even listeners
+export const domVariables = {
+  textInput: getElement("id", "text-input"),
+  excludeSpacesCheckbox: getElement("id", "exclude-spaces"),
+  appearanceToggle: getElement("id", "appearance-toggle"),
+  characterLimitCheckbox: getElement("id", "set-character-limit"),
+  characterLimitInput: getElement("class", "character-limit-input")[0],
+  seeMoreText: getElement("id", "see-text-more"),
+  seeLessText: getElement("id", "see-text-less"),
+};
+
 // Function to toggle between light and dark themes
 export const toggleTheme = () => {
   const root = document.documentElement;

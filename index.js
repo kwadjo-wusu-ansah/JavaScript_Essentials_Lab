@@ -9,19 +9,12 @@ import {
   displayLimitReachedMessage,
   displayTop5LetterDensityResults,
   displayAllLetterDensityResults,
+  domVariables,
 } from "./dom.js";
 
-import { getElement } from "./utils.js";
 
-const domVariables = {
-  textInput: getElement("id", "text-input"),
-  excludeSpacesCheckbox: getElement("id", "exclude-spaces"),
-  appearanceToggle: getElement("id", "appearance-toggle"),
-  characterLimitCheckbox: getElement("id", "set-character-limit"),
-  characterLimitInput: getElement("class", "character-limit-input")[0],
-  seeMoreText: getElement("id", "see-text-more"),
-  seeLessText: getElement("id", "see-text-less"),
-};
+
+
 
 domVariables.appearanceToggle.addEventListener("click", toggleTheme);
 
