@@ -205,6 +205,8 @@ export const displayTop5LetterDensityResults = () => {
     densityResult.innerHTML = results;
     if (letterDensityStrings.length > 5) {
       displaySeeMore();
+    }else{
+      seeMoreText.style.display = "none";
     }
    
   }
