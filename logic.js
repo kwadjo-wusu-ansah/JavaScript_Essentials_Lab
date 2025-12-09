@@ -9,7 +9,7 @@ import {
   removeNewLinesFromText,
 } from "./utils.js";
 
-// Function to compute reading time in minutes based on average reading speed (2) - /*utility*/
+// Function to compute reading time in minutes based on average reading speed 
 export const computeReadingTime = (text) => {
   const averageWordsPerMinute = 200; // average reading speed
   const words = TextToWords(text);
@@ -23,19 +23,19 @@ export const computeReadingTime = (text) => {
   }
 };
 
-// Function to compute character count excluding spaces  (2) - /*utility*/
+// Function to compute character count excluding spaces  
 export const computeTotalCharacterCountWithoutSpaces = (text) => {
   const characters = TextToCharacterWithoutSpaces(text);
   return characters.length;
 };
 
-// Function to compute character count including spaces  (2) - /*utility*/
+// Function to compute character count including spaces  
 export const computeTotalCharacterCountWithSpaces = (text) => {
   const characters = TextToCharacterWithSpaces(text);
   return characters.length;
 };
 
-// Function to compute word count (2) - /*utility*/
+// Function to compute word count 
 export const computeWordCount = (text) => {
   const words = TextToWords(text);
   if (words.length === 1 && words[0] === "") {
@@ -45,13 +45,13 @@ export const computeWordCount = (text) => {
   return words.length;
 };
 
-//Function to compute the sentence count (2) - /*utility*/
+//Function to compute the sentence count
 export const computeSentenceCount = (text) => {
   const sentences = TextToSentences(text);
   return sentences.length;
 };
 
-// Function to compute Letter Density Results (2) - /*utility*/
+// Function to compute Letter Density Results 
 export const computeLetterDensityResultsHTML = () => {
   const letterDensity = new Map();
   const textInput = getElement("id", "text-input");

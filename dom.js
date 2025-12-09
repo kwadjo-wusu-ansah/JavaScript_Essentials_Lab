@@ -12,6 +12,8 @@ import {
   handleStatisticFormat,
 } from "./utils.js";
 
+/*DOM manipulation functions*/
+
 // DOM Elements for the even listeners
 export const domVariables = {
   textInput: getElement("id", "text-input"),
@@ -67,24 +69,29 @@ export const updateReadingTime = () => {
 export const updateTotalCharacterCountWithoutSpaces = () => {
   const textArea = getElement("id", "text-input");
   const charCountDisplay = getElement("id", "total-characters");
+  const charCountWithoutSpacesDisplay = getElement("id", "total-characters-without-spaces");
 
   const text = textArea.value;
   const charCount = computeTotalCharacterCountWithoutSpaces(text);
   const formattedCount = handleStatisticFormat(charCount);
 
   charCountDisplay.textContent = formattedCount;
+  charCountWithoutSpacesDisplay.textContent = "(no space)";
+
 };
 
 // Function to Update character count including spaces in the DOM
 export const updateTotalCharacterCountWithSpaces = () => {
   const textArea = getElement("id", "text-input");
   const charCountDisplay = getElement("id", "total-characters");
+  const charCountWithoutSpacesDisplay = getElement("id", "total-characters-without-spaces");
 
   const text = textArea.value;
   const charCount = computeTotalCharacterCountWithSpaces(text);
   const formattedCount = handleStatisticFormat(charCount);
 
   charCountDisplay.textContent = formattedCount;
+  charCountWithoutSpacesDisplay.textContent = "";
 };
 
 // Function to update character count based on checkbox state
@@ -156,7 +163,6 @@ export const displayLimitReachedMessage = () => {
   const characterCount = computeTotalCharacterCountWithSpaces(textArea.value);
   if (characterLimitInput.value == 0) {
     textArea.removeAttribute("maxlength");
-    return;
   }
   if (characterLimitInput.value == "") {
     textArea.removeAttribute("maxlength");

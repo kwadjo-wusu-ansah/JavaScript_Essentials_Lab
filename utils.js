@@ -32,7 +32,7 @@ export const removeNumbersFromText = (text) => {
   return text.replace(/[0-9]/g, "");
 };
 
-// Function to remove special characters from text
+// Function to remove new line characters from text
 export const removeNewLinesFromText = (text) => {
   return text.replace(/[\r\n]+/g, " ");
 };
@@ -59,7 +59,7 @@ export const handleReadingTimeFormat = (readingTime) => {
   }
 };
 
-/*DOM Manipulation Functions*/
+/*DOM Accessing Functions*/
 
 // Function to get DOM elements based on selector type
 export const getElement = (selectorType, name) => {
