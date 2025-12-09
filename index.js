@@ -13,34 +13,52 @@ import {
 
 import { getElement } from "./utils.js";
 
-const textInput = getElement("id", "text-input");
-const excludeSpacesCheckbox = getElement("id", "exclude-spaces");
-const appearanceToggle = getElement("id", "appearance-toggle");
-const characterLimitCheckbox = getElement("id", "set-character-limit");
-const characterLimitInput = getElement("class", "character-limit-input")[0];
-const seeMoreText = getElement("id", "see-text-more");
-const seeLessText = getElement("id", "see-text-less");
+const domVariables = {
+  textInput: getElement("id", "text-input"),
+  excludeSpacesCheckbox: getElement("id", "exclude-spaces"),
+  appearanceToggle: getElement("id", "appearance-toggle"),
+  characterLimitCheckbox: getElement("id", "set-character-limit"),
+  characterLimitInput: getElement("class", "character-limit-input")[0],
+  seeMoreText: getElement("id", "see-text-more"),
+  seeLessText: getElement("id", "see-text-less"),
+};
 
-appearanceToggle.addEventListener("click", toggleTheme);
+domVariables.appearanceToggle.addEventListener("click", toggleTheme);
 
-textInput.addEventListener("input", updateReadingTime);
+domVariables.textInput.addEventListener("input", updateReadingTime);
+domVariables.textInput.addEventListener("input", updateTotalCharacterCount);
+domVariables.excludeSpacesCheckbox.addEventListener(
+  "change",
+  updateTotalCharacterCount
+);
 
-textInput.addEventListener("input", updateTotalCharacterCount);
-excludeSpacesCheckbox.addEventListener("change", updateTotalCharacterCount);
+domVariables.textInput.addEventListener("input", updateWordCount);
 
-textInput.addEventListener("input", updateWordCount);
+domVariables.textInput.addEventListener("input", updateSentenceCount);
+domVariables.characterLimitCheckbox.addEventListener(
+  "change",
+  toggleCharacterLimitBox
+);
 
-textInput.addEventListener("input", updateSentenceCount);
+domVariables.characterLimitInput.addEventListener("input", setCharacterLimit);
 
-characterLimitCheckbox.addEventListener("change", toggleCharacterLimitBox);
+domVariables.textInput.addEventListener("input", displayLimitReachedMessage);
+domVariables.characterLimitInput.addEventListener(
+  "input",
+  displayLimitReachedMessage
+);
 
-characterLimitInput.addEventListener("input", setCharacterLimit);
+domVariables.textInput.addEventListener(
+  "input",
+  displayTop5LetterDensityResults
+);
 
-textInput.addEventListener("input", displayLimitReachedMessage);
-characterLimitInput.addEventListener("input", displayLimitReachedMessage);
+domVariables.seeMoreText.addEventListener(
+  "click",
+  displayAllLetterDensityResults
+);
 
-textInput.addEventListener("input", displayTop5LetterDensityResults);
-
-seeMoreText.addEventListener("click", displayAllLetterDensityResults);
-
-seeLessText.addEventListener("click", displayTop5LetterDensityResults);
+domVariables.seeLessText.addEventListener(
+  "click",
+  displayTop5LetterDensityResults
+);
